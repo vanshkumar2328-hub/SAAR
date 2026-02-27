@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+}
+
+:root {
+  --accent: #facc15;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #000;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: #000;
+}
