@@ -6,14 +6,17 @@ const works = [
   {
     title: "Seeson",
     video: "/videos/purple.mp4",
+    videoMob: "/videos/purple-mob.mp4",
   },
   {
     title: "Future",
     video: "/videos/blue.mp4",
+    videoMob: "/videos/blue-mob.mp4",
   },
   {
     title: "NexoPay",
     video: "/videos/red.mp4",
+    videoMob: "/videos/red-mob.mp4",
   },
 ];
 
@@ -129,7 +132,6 @@ export default function WorksSection() {
             <AnimatePresence mode="wait">
               <motion.video
                 key={works[index].video}
-                src={works[index].video}
                 autoPlay
                 muted
                 playsInline
@@ -142,7 +144,18 @@ export default function WorksSection() {
                 onEnded={() => {
                   setIndex((i) => (i + 1) % works.length);
                 }}
-              />
+              >
+                <source
+                  src={works[index].videoMob}
+                  type="video/mp4"
+                  media="(max-width: 767px)"
+                />
+                <source
+                  src={works[index].video}
+                  type="video/mp4"
+                  media="(min-width: 768px)"
+                />
+              </motion.video>
             </AnimatePresence>
             <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-black via-black/40 to-transparent" />
           </div>

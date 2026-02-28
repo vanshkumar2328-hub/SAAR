@@ -1,4 +1,5 @@
 import profileVideo from "/videos/profile.mp4";
+import profileVideoMob from "/videos/profile-mob.mp4";
 
 export default function About() {
   return (
@@ -17,29 +18,27 @@ export default function About() {
       {/* LEFT — Video portrait */}
       <div className="relative w-full h-[50vh] lg:absolute lg:left-0 lg:top-0 lg:h-full lg:w-1/2 overflow-hidden">
         <video
-          src={profileVideo}
           autoPlay
           muted
           loop
           playsInline
           className="h-full w-full object-cover grayscale"
           style={{
-            maskImage: `
-              radial-gradient(
-                ellipse at 35% 45%,
-                black 40%,
-                transparent 85%
-              )
-            `,
-            WebkitMaskImage: `
-              radial-gradient(
-                ellipse at 35% 45%,
-                black 40%,
-                transparent 85%
-              )
-            `,
+            maskImage: `radial-gradient(ellipse at 35% 45%, black 40%, transparent 85%)`,
+            WebkitMaskImage: `radial-gradient(ellipse at 35% 45%, black 40%, transparent 85%)`,
           }}
-        />
+        >
+          <source
+            src={profileVideoMob}
+            type="video/mp4"
+            media="(max-width: 767px)"
+          />
+          <source
+            src={profileVideo}
+            type="video/mp4"
+            media="(min-width: 768px)"
+          />
+        </video>
 
         {/* cinematic 4-side fade */}
         <div
